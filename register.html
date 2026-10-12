@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid py-5">
+    <div class="container" style="max-width:600px;">
+        
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Create Account</h1>
+            <p>Register to use the Heart Disease Prediction System</p>
+        </div>
+
+        <form method="POST" action="/register">
+
+            <!-- Username -->
+            <div class="mb-3">
+                <input type="text"
+                class="form-control bg-light border-0 px-4"
+                name="username"
+                placeholder="Username"
+                style="height:55px;"
+                required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <input type="email"
+                class="form-control bg-light border-0 px-4"
+                name="email"
+                placeholder="Email Address"
+                style="height:55px;"
+                required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <input type="password"
+                class="form-control bg-light border-0 px-4"
+                name="password"
+                placeholder="Password"
+                style="height:55px;"
+                required>
+            </div>
+
+            <!-- Register Button -->
+            <div class="mb-3">
+                <button class="btn btn-primary w-100 py-3" type="submit">
+                    Register
+                </button>
+            </div>
+
+            <div class="text-center">
+                <p>Already Registered?
+                    <a href="/login" class="text-primary">Login</a>
+                </p>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

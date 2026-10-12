@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>HeartCare AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-2">
+        <a href="/" class="navbar-brand">
+        <h1 class="m-0 text-primary"><i class="fa fa-heartbeat me-2"></i>HeartCare AI</h1>
+        </a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse"></div>
+    <div class="navbar-nav ms-auto">
+        <a href="/" class="nav-item nav-link">Home</a>
+        <a href="/about" class="nav-item nav-link">About Project</a>
+        <a href="/methodology" class="nav-item nav-link">Methodology</a>
+        <a href="/predict" class="nav-item nav-link btn btn ">Predict</a>
+
+{% if session.get('user') %}
+
+        <a class="nav-item nav-link">Welcome {{ session.get('user') }}</a>
+        <a href="/logout" class="nav-item nav-link">Logout</a>
+
+{% else %}
+
+        <a href="/login" class="nav-item nav-link">Login</a>
+             
+
+{% endif %}       
+     
+</div>
+</nav>
+
+<!-- PAGE CONTENT -->
+{% block content %}
+{% endblock %}
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light py-5 wow fadeInUp" data-wow-delay="0.3s" style="margin-top: -75px;">
+    <div class="container pt-5">
+        <div class="row g-5 pt-4">
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+
+                    <a class="text-light mb-2" href="/"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-light mb-2" href="/about"><i class="bi bi-arrow-right text-primary me-2"></i>About project</a>
+                    <a class="text-light mb-2" href="/methodology"><i class="bi bi-arrow-right text-primary me-2"></i>Methodology</a>
+                    <a class="text-light mb-2" href="/predict"><i class="bi bi-arrow-right text-primary me-2"></i>Predict</a>
+                    <a class="text-light mb-2" href="/login"><i class="bi bi-arrow-right text-primary me-2"></i>Login</a>
+       
+             </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Project Details</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Dataset: Kaggle</a>
+                    <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>ML Type: Classification</a>
+                    <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Models Used</a>
+                    <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Random Forest</a>
+                    <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Accuracy: 89.67%</a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                 <h3 class="text-white mb-4">Project Information</h3>
+
+                <p class="mb-2">Dataset: Heart Disease Dataset (Kaggle)</p>
+                <p class="mb-2">Type: Classification Problem</p>
+                <p class="mb-2">Best Model: Random Forest</p>
+                <p class="mb-0">Accuracy: 89.67%</p>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Technologies Used</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <p class="mb-2">Python</p>
+                    <p class="mb-2">Scikit-learn</p>
+                    <p class="mb-2">Flask</p>
+                    <p class="mb-2">HTML, CSS, Bootstrap</p>
+                    <p class="mb-0">Machine Learning</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-light py-4" style="background: #051225;">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="#">Heart Disease Prediction System</a>. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">Machine Learning Project using Classification Models</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/twentytwenty/jquery.event.move.js"></script>
+    <script src="lib/twentytwenty/jquery.twentytwenty.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script></body>
+
+</html>

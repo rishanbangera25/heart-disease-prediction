@@ -1,0 +1,140 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">About Project</h1>
+    </div>
+</div>
+
+
+<!-- About Section -->
+<div class="container py-5">
+    <div class="row g-5">
+
+        <div class="col-lg-7">
+
+            <h2 class="mb-3">Heart Disease Prediction Using Machine Learning</h2>
+
+            <p>
+                This project predicts the possibility of heart disease using patient health data.
+                The dataset is taken from Kaggle and contains medical attributes such as age,
+                chest pain type, cholesterol level, blood pressure, and maximum heart rate.
+            </p>
+
+            <p>
+                After preprocessing the data and encoding categorical values,
+                multiple machine learning models were trained and tested.
+                Among them, the Random Forest model provided the best accuracy.
+            </p>
+
+            <div class="row mt-4">
+
+                <div class="col-md-6">
+                    <p>✔ Dataset from Kaggle</p>
+                    <p>✔ Machine Learning Classification</p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>✔ Random Forest Best Model</p>
+                    <p>✔ Accuracy: 89.67%</p>
+                </div>
+
+            </div>
+
+            <p class="mt-3">
+                The system analyzes patient data such as age, blood pressure,
+                cholesterol level and heart rate. Based on these parameters,
+                the trained model predicts whether the patient is at risk of
+                heart disease or not.
+            </p>
+
+            <a href="/predict" class="btn btn-primary mt-3">
+                Predict Heart Disease
+            </a>
+
+        </div>
+        <div class="col-lg-4">
+            <img src="{{ url_for('static', filename='img/abt img.jpg') }}" 
+             class="img-fluid rounded w-100"
+                style="max-height:500px; max-width: 600;object-fit:cover;">
+        </div>
+             
+               
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Technologies Used -->
+<div class="container py-5 bg-light">
+
+    <div class="text-center mb-5">
+        <h3>Technologies Used</h3>
+    </div>
+
+    <div class="row text-center">
+
+        <div class="col-md-3">
+            <h5>Python</h5>
+            <p>Used for building machine learning models and data processing.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h5>Machine Learning</h5>
+            <p>Algorithms like Logistic Regression and Random Forest.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h5>Flask</h5>
+            <p>Backend framework connecting the ML model with the web interface.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h5>HTML / CSS / Bootstrap</h5>
+            <p>Frontend design and user interface.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Working Process -->
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h3>How Heart Disease Prediction Works</h3>
+    </div>
+
+    <div class="row text-center">
+
+        <div class="col-md-3">
+            <h2>1</h2>
+            <p>Enter patient health data.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>2</h2>
+            <p>System processes the input.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>3</h2>
+            <p>Machine learning model predicts the risk.</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>4</h2>
+            <p>Prediction result is displayed instantly.</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

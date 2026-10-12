@@ -1,0 +1,88 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-4 text-white">Project Methodology</h1>
+        <p class="text-white">Steps followed to build the Heart Disease Prediction System</p>
+    </div>
+</div>
+
+<!-- Methodology Start -->
+<div class="container py-5">
+
+    <div class="row">
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>1. Dataset Collection</h4>
+                <p>
+                The dataset used for this project was taken from Kaggle.
+                It contains patient health parameters such as Age, Chest Pain Type,
+                Cholesterol, Resting Blood Pressure, and Maximum Heart Rate.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>2. Data Preprocessing</h4>
+                <p>
+                The dataset was cleaned and checked for missing values.
+                Categorical variables were converted into numerical format
+                using encoding techniques.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>3. Feature Selection</h4>
+                <p>
+                Important health parameters such as Age, Cholesterol,
+                Blood Pressure, and Heart Rate were used as features
+                to train the machine learning models.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>4. Train-Test Split</h4>
+                <p>
+                The dataset was divided into training and testing sets
+                using an 80:20 ratio to evaluate model performance.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>5. Model Training</h4>
+                <p>
+                Multiple machine learning algorithms were used including
+                Logistic Regression, Decision Tree, Random Forest,
+                and Support Vector Machine.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>6. Model Evaluation</h4>
+                <p>
+                The models were evaluated using accuracy and confusion matrix.
+                Random Forest achieved the highest accuracy of 89.67%.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- Methodology End -->
+
+{% endblock %}

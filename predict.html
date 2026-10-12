@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-2">
+    <a href="/" class="navbar-brand">
+        <h1 class="m-0 text-primary"><i class="fa fa-heartbeat me-2"></i>HeartCare AI</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto">
+            <a href="/" class="nav-item nav-link">Home</a>
+            <a href="/about" class="nav-item nav-link">About Project</a>
+            <a href="/methodology" class="nav-item nav-link">Methodology</a>
+            <a href="/predict" class="nav-item nav-link btn btn-primary text-white">Predict Now</a>
+
+            {% if session.get('user') %}
+                <a class="nav-item nav-link">Welcome {{ session.get('user') }}</a>
+                <a href="/logout" class="nav-item nav-link">Logout</a>
+            {% else %}
+                <a href="/login" class="nav-item nav-link">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="text-primary">Heart Disease Prediction</h1>
+        <p>Enter patient details to predict heart disease risk</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+
+            <form action="/predict" method="POST">
+
+                <div class="mb-3">
+                    <label>Age</label>
+                    <input type="number" name="age" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Sex</label>
+                    <select name="sex" class="form-control" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Chest Pain Type</label>
+                    <select name="cp" class="form-control" required>
+                        <option value="0">ATA</option>
+                        <option value="1">NAP</option>
+                        <option value="2">ASY</option>
+                        <option value="3">TA</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Resting Blood Pressure</label>
+                    <input type="number" name="bp" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Cholesterol</label>
+                    <input type="number" name="cholesterol" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Fasting Blood Sugar</label>
+                    <select name="fbs" class="form-control" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Resting ECG</label>
+                    <select name="ecg" class="form-control" required>
+                        <option value="0">Normal</option>
+                        <option value="1">ST</option>
+                        <option value="2">LVH</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Max Heart Rate</label>
+                    <input type="number" name="hr" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Exercise Angina</label>
+                    <select name="angina" class="form-control" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Oldpeak</label>
+                    <input type="number" name="oldpeak" step="0.1" class="form-control" required>
+                </div>
+
+                <div class="mb-4">
+                    <label>ST Slope</label>
+                    <select name="slope" class="form-control" required>
+                        <option value="0">Up</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Down</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-3">Predict</button>
+
+            </form>
+
+            {% if prediction_text %}
+            <div class="alert alert-info mt-4 text-center">
+                <h4>{{ prediction_text }}</h4>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
